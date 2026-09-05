@@ -1,203 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potti Mohana Priya — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10192B;
+  --ink-soft:#1A2438;
+  --paper:#F8F6F0;
+  --paper-dark:#EFEAE0;
+  --teal:#2F5D50;
+  --teal-soft:#3E7264;
+  --brass:#B8874F;
+  --text:#1C2430;
+  --text-soft:#5B6472;
+  --sidebar-text:#E8E4D8;
+  --sidebar-muted:#8D95A8;
+  --rule:#D9D2C2;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--text);
+  font-family:'Inter', sans-serif;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Source Serif 4', serif;
+  color:var(--ink);
+  font-weight:600;
+}
+a{color:var(--teal); text-decoration:none;}
+a:hover{color:var(--brass);}
+a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
 
-    <title>Potti Mohana Priya | Portfolio</title>
+.layout{display:flex; min-height:100vh;}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+/* SIDEBAR */
+.sidebar{
+  width:320px; flex-shrink:0;
+  background:var(--ink);
+  color:var(--sidebar-text);
+  padding:56px 40px;
+  position:sticky; top:0; height:100vh;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.sidebar-top .mark{
+  font-family:'Source Serif 4', serif;
+  font-size:15px; letter-spacing:0.04em;
+  color:var(--brass); margin-bottom:28px;
+}
+.sidebar-top h1{
+  color:#fff; font-size:30px; line-height:1.25; margin-bottom:10px;
+}
+.sidebar-top .role{
+  color:var(--sidebar-muted); font-size:14.5px; margin-bottom:36px;
+}
+nav ul{list-style:none;}
+nav li{margin-bottom:16px;}
+nav a{
+  color:var(--sidebar-text); font-size:14.5px;
+  display:flex; align-items:baseline; gap:12px;
+}
+nav a .num{color:var(--brass); font-size:12.5px; font-variant-numeric:tabular-nums;}
+nav a:hover{color:var(--brass);}
+nav a.active{color:var(--brass);}
+nav a.active .num{color:#fff;}
 
-        body {
-            background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
-        }
+.sidebar-bottom{font-size:13.5px; color:var(--sidebar-muted);}
+.sidebar-bottom .contact-item{
+  display:flex; gap:10px; margin-bottom:10px; align-items:flex-start;
+}
+.sidebar-bottom .contact-item svg{flex-shrink:0; margin-top:3px; stroke:var(--brass);}
+.sidebar-bottom a{color:var(--sidebar-text); word-break:break-word;}
+.sidebar-bottom a:hover{color:var(--brass);}
 
-        header {
-            background: #1f2937;
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
-        }
+/* MAIN */
+main{flex:1; min-width:0;}
+.section{
+  padding:96px 80px;
+  max-width:820px;
+  border-bottom:1px solid var(--rule);
+}
+.section:last-child{border-bottom:none;}
+.eyebrow{
+  font-size:13px; color:var(--brass);
+  font-family:'Source Serif 4', serif; font-style:italic;
+  margin-bottom:18px;
+}
 
-        header h1 {
-            font-size: 42px;
-        }
+/* HERO */
+#hero{padding-top:110px;}
+.entry-word{
+  font-size:44px; line-height:1.15; margin-bottom:6px;
+}
+.entry-phon{
+  color:var(--text-soft); font-size:16px; margin-bottom:18px;
+}
+.entry-pos{
+  display:inline-block; font-style:italic; color:var(--teal);
+  font-family:'Source Serif 4', serif; font-size:16px; margin-bottom:22px;
+}
+.entry-def{
+  font-size:19px; max-width:60ch; color:var(--text); margin-bottom:14px;
+}
+.entry-def .n{color:var(--text-soft); margin-right:8px;}
+.hero-sub{
+  max-width:58ch; color:var(--text-soft); font-size:15.5px; margin-top:28px;
+}
 
-        header p {
-            margin-top: 10px;
-            font-size: 20px;
-        }
+/* ABOUT */
+#about p{max-width:62ch; font-size:16.5px; color:var(--text); margin-bottom:16px;}
 
-        nav {
-            background: #111827;
-            text-align: center;
-            padding: 15px;
-        }
+/* SKILLS */
+.skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:36px 48px; margin-top:8px;}
+.skill-group h3{font-size:16px; margin-bottom:12px; color:var(--teal);}
+.skill-group ul{list-style:none;}
+.skill-group li{
+  font-size:15px; color:var(--text); padding:7px 0;
+  border-bottom:1px solid var(--rule);
+}
+.skill-group li:last-child{border-bottom:none;}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+/* PROJECTS */
+.project{
+  padding:28px 0; border-bottom:1px solid var(--rule);
+}
+.project:first-of-type{padding-top:8px;}
+.project:last-of-type{border-bottom:none;}
+.project-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+}
+.project-head h3{font-size:20px;}
+.project-tag{
+  font-size:12.5px; color:var(--teal-soft); border:1px solid var(--teal-soft);
+  padding:2px 10px; border-radius:2px; white-space:nowrap;
+}
+.project p.desc{color:var(--text-soft); font-size:15px; margin:10px 0 12px; max-width:60ch;}
+.project .stack{font-size:13.5px; color:var(--brass);}
+.project .links{margin-top:10px; font-size:14px;}
 
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+.contrib-list{margin-top:10px;}
+.contrib-list li{
+  list-style:none; padding:14px 0; border-bottom:1px solid var(--rule);
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+.contrib-list li:last-child{border-bottom:none;}
+.contrib-list .name{font-size:15.5px; color:var(--ink); font-weight:500;}
+.contrib-list .name a{color:var(--ink); text-underline-offset:3px;}
+.contrib-list .name a:hover{color:var(--teal);}
+.contrib-list .note{font-size:14px; color:var(--text-soft);}
+.contrib-list .note a{color:var(--teal);}
+.contrib-list .note a:hover{color:var(--brass);}
 
-        h2 {
-            color: #2563eb;
-            margin-bottom: 20px;
-        }
+/* EDUCATION */
+.edu-row{display:flex; justify-content:space-between; gap:24px; padding:20px 0; border-bottom:1px solid var(--rule); flex-wrap:wrap;}
+.edu-row:last-child{border-bottom:none;}
+.edu-row .deg{font-size:16px; color:var(--ink); line-height:1.7; max-width:56ch;}
+.edu-row .yr{font-size:14px; color:var(--brass); white-space:nowrap; font-variant-numeric:tabular-nums;}
 
-        .skills span {
-            display: inline-block;
-            background: white;
-            padding: 10px 18px;
-            margin: 8px;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+/* CONTACT */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; margin-top:24px;}
+.contact-grid .item{padding:16px 0; border-top:1px solid var(--rule);}
+.contact-grid .label{font-size:12.5px; color:var(--text-soft); margin-bottom:6px;}
+.contact-grid .val a{font-size:15.5px; color:var(--ink);}
+.contact-grid .val a:hover{color:var(--teal);}
+footer{padding:32px 80px; font-size:13px; color:var(--text-soft);}
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+@media (max-width:880px){
+  .layout{flex-direction:column;}
+  .sidebar{width:100%; height:auto; position:relative; padding:36px 28px;}
+  .section{padding:56px 28px;}
+  .skill-groups, .contact-grid{grid-template-columns:1fr;}
+  .entry-word{font-size:34px;}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .card a,
-        .links a {
-            display: inline-block;
-            margin-top: 12px;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+</style>
 </head>
-
 <body>
+<div class="layout">
 
-<header>
-    <h1>Potti Mohana Priya</h1>
-    <p>Aspiring Software Developer | B.Tech CSE Student</p>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a B.Tech Computer Science Engineering student passionate about
-        software development, programming, problem-solving, and emerging
-        technologies. I am continuously learning and building projects to
-        strengthen my technical skills.
-    </p>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-        <span>Java</span>
-        <span>Python</span>
-        <span>SQL</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>AI Tools</span>
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="mark">Portfolio</div>
+      <h1>Potti Mohana&nbsp;Priya</h1>
+      <div class="role">B.Tech CSE, Final Year<br>Specialization: AI-Driven Language Technologies</div>
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="#about"><span class="num">01</span> About</a></li>
+          <li><a href="#skills"><span class="num">02</span> Skills</a></li>
+          <li><a href="#projects"><span class="num">03</span> Projects</a></li>
+          <li><a href="#achievements"><span class="num">04</span> Achievements</a></li>
+          <li><a href="#education"><span class="num">05</span> Education</a></li>
+          <li><a href="#certifications"><span class="num">06</span> Certifications</a></li>
+          <li><a href="#contact"><span class="num">07</span> Contact</a></li>
+        </ul>
+      </nav>
     </div>
-</section>
 
-<section id="projects">
-    <h2>Projects</h2>
+    <div class="sidebar-bottom">
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+919347802454">+91 93478 02454</a>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        <a href="mailto:2300033804cseh2@gmail.com">2300033804cseh2@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/mohanapriyapotti1105-beep" target="_blank" rel="noopener">github.com/mohanapriyapotti1105-beep</a>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/mohana-priya-potti-5b6770289/" target="_blank" rel="noopener">linkedin.com/in/mohana-priya-potti</a>
+      </div>
+    </div>
+  </aside>
 
-    <div class="projects">
+  <main>
 
-        <div class="card">
-            <h3>AI Gig Insurance Platform</h3>
-            <p>AI-powered insurance platform designed for gig workers.</p>
-            <a href="https://github.com/mohanapriyapotti1105-beep/AI-Gig-Insurance-Platform" target="_blank">
-                View Project
-            </a>
+    <section class="section" id="hero">
+      <p class="entry-word">Mohana&nbsp;Priya <span style="font-size:20px; color:var(--text-soft); font-weight:400;">/moʊˈhɑːnə ˈpriːjə/</span></p>
+      <p class="entry-pos">noun — engineer, final-year CSE</p>
+      <p class="entry-def"><span class="n">1.</span>A computer science student who builds AI systems that read, reason about, and generate human language — from applied NLP pipelines to full-stack AI products.</p>
+      <p class="entry-def"><span class="n">2.</span>Someone who prefers shipping a working prototype over a polished slide deck.</p>
+      <p class="hero-sub">Currently completing a B.Tech in Computer Science &amp; Engineering (Honours) at KL University, specializing in AI-driven language technologies — the systems that let machines understand and produce natural language.</p>
+    </section>
+
+    <section class="section" id="about">
+      <p class="eyebrow">About</p>
+      <h2 style="font-size:26px; margin-bottom:20px;">Background</h2>
+      <p>I'm a Computer Science and Engineering undergraduate at KL University, specializing in Artificial Intelligence, with a strong grounding in Java, Python, SQL, object-oriented programming, and data structures.</p>
+      <p>I'm passionate about building AI-powered applications and full-stack software solutions — experienced in developing intelligent systems using large language models, REST APIs, cloud technologies, and modern development tools across academic projects and hackathons.</p>
+      <p>I'm actively seeking opportunities where I can contribute technical skills, problem-solving ability, and a habit of continuous learning.</p>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="eyebrow">Skills</p>
+      <h2 style="font-size:26px; margin-bottom:24px;">What I work with</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Programming Languages</h3>
+          <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>C</li>
+            <li>JavaScript</li>
+            <li>SQL</li>
+          </ul>
         </div>
-
-        <div class="card">
-            <h3>SkillVista AI</h3>
-            <p>An AI-based platform focused on skills and intelligent technology solutions.</p>
-            <a href="https://github.com/mohanapriyapotti1105-beep/SkillVista_AI" target="_blank">
-                View Project
-            </a>
+        <div class="skill-group">
+          <h3>AI &amp; Cloud</h3>
+          <ul>
+            <li>Machine Learning</li>
+            <li>Large Language Models (LLMs)</li>
+            <li>Google Gemini API · Prompt Engineering</li>
+            <li>AI Agents</li>
+            <li>AWS Cloud Fundamentals · Microsoft Azure Fundamentals</li>
+          </ul>
         </div>
-
-        <div class="card">
-            <h3>Hospital Appointment System</h3>
-            <p>A system designed to manage hospital appointments efficiently.</p>
-            <a href="https://github.com/mohanapriyapotti1105-beep/HospitalAppointmentSystem" target="_blank">
-                View Project
-            </a>
+        <div class="skill-group">
+          <h3>Web &amp; Databases</h3>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React.js</li>
+            <li>Node.js, Express.js, Streamlit</li>
+            <li>MySQL, MongoDB, SQLite</li>
+          </ul>
         </div>
+        <div class="skill-group">
+          <h3>Tools &amp; Core CS</h3>
+          <ul>
+            <li>Git, GitHub, VS Code, Docker, Postman</li>
+            <li>Data Structures &amp; Algorithms</li>
+            <li>OOPS, Operating Systems, DBMS, Computer Networks</li>
+          </ul>
+        </div>
+      </div>
 
-    </div>
-</section>
+      <p class="eyebrow" style="margin-top:44px;">Soft skills</p>
+      <p style="max-width:62ch; font-size:15.5px; color:var(--text);">Communication and interpersonal skills, teamwork and collaboration, problem solving, organizational and time management skills, adaptability and quick learning, MS Office and documentation basics.</p>
+    </section>
 
-<section id="certifications">
-    <h2>Certifications</h2>
+    <section class="section" id="projects">
+      <p class="eyebrow">Projects</p>
+      <h2 style="font-size:26px; margin-bottom:8px;">Independent work</h2>
 
-    <div class="card">
-        <h3>Advanced Automation Certification</h3>
-        <p>Automation Anywhere University | 2026</p>
-    </div>
-</section>
+      <div class="project">
+        <div class="project-head">
+          <h3>SkillVista_AI</h3>
+          <span class="project-tag">Python</span>
+        </div>
+        <p class="desc">An AI-driven platform exploring skill assessment and matching — applying language-model techniques to interpret and evaluate free-form input rather than relying on rigid forms.</p>
+        <div class="stack">Python · AI/ML</div>
+        <div class="links"><a href="https://github.com/mohanapriyapotti1105-beep/SkillVista_AI" target="_blank" rel="noopener">View repository →</a></div>
+      </div>
 
-<section id="contact">
-    <h2>Contact</h2>
+      <p class="eyebrow" style="margin-top:44px;">Hackathons &amp; collaborative builds</p>
+      <ul class="contrib-list">
+        <li>
+          <span class="name"><a href="https://github.com/mohanapriyapotti1105-beep/AI-Gig-Insurance-Platform" target="_blank" rel="noopener">AI-Gig-Insurance-Platform ↗</a></span>
+          <span class="note">Group project — AI-powered insurance platform for gig workers</span>
+        </li>
+        <li>
+          <span class="name"><a href="https://github.com/mohanapriyapotti1105-beep/ai-cfo-autonomous-cost-optimizer" target="_blank" rel="noopener">ai-cfo-autonomous-cost-optimizer ↗</a></span>
+          <span class="note">ET GenAI Hackathon 2026 team project — an autonomous AI CFO system</span>
+        </li>
+        <li>
+          <span class="name"><a href="https://github.com/mohanapriyapotti1105-beep/HospitalAppointmentSystem" target="_blank" rel="noopener">HospitalAppointmentSystem ↗</a></span>
+          <span class="note">Collaborative build — appointment scheduling system</span>
+        </li>
+        <li>
+          <span class="name"><a href="https://github.com/mohanapriyapotti1105-beep/ai-govt-agent" target="_blank" rel="noopener">ai-govt-agent ↗</a></span>
+          <span class="note">Collaborative build — AI agent for government service workflows</span>
+        </li>
+      </ul>
+    </section>
 
-    <div class="links">
-        <p>Email: mohanapriyapotti1105@gmail.com</p>
+    <section class="section" id="achievements">
+      <p class="eyebrow">Achievements</p>
+      <h2 style="font-size:26px; margin-bottom:8px;">Recognition</h2>
+      <ul class="contrib-list">
+        <li>
+          <span class="name">Semi-Finalist — ET AI Hackathon 2026</span>
+          <span class="note">Organized by The Economic Times</span>
+        </li>
+        <li>
+          <span class="name">Participant — Agentathon 2025, Hyderabad</span>
+          <span class="note">36-hour AI hackathon organized by GDG</span>
+        </li>
+      </ul>
+    </section>
 
-        <a href="https://github.com/mohanapriyapotti1105-beep" target="_blank">
-            GitHub
-        </a>
-    </div>
-</section>
+    <section class="section" id="education">
+      <p class="eyebrow">Education</p>
+      <h2 style="font-size:26px; margin-bottom:8px;">Academic background</h2>
+      <div class="edu-row">
+        <span class="deg">B.Tech in Computer Science &amp; Engineering (Honours)<br>
+          <span style="font-size:14px; color:var(--text-soft); font-weight:400;">Koneru Lakshmaiah Educational Foundation (KL University), Vijayawada<br>Specialization: AI-driven language technologies · CGPA: 8.01</span>
+        </span>
+        <span class="yr">2023 – 2027</span>
+      </div>
+      <div class="edu-row">
+        <span class="deg">Narayana Junior College, Nellore<br>
+          <span style="font-size:14px; color:var(--text-soft); font-weight:400;">Intermediate · CGPA: 7.10</span>
+        </span>
+        <span class="yr">2021 – 2023</span>
+      </div>
+      <div class="edu-row">
+        <span class="deg">Dr. K.K.R Gowtham School, Nellore<br>
+          <span style="font-size:14px; color:var(--text-soft); font-weight:400;">SSC · CGPA: 9.85</span>
+        </span>
+        <span class="yr">2021</span>
+      </div>
+    </section>
 
-<footer>
-    <p>© 2026 Potti Mohana Priya | Portfolio</p>
-</footer>
+    <section class="section" id="certifications">
+      <p class="eyebrow">Certifications</p>
+      <h2 style="font-size:26px; margin-bottom:8px;">Credentials</h2>
+      <ul class="contrib-list">
+        <li>
+          <span class="name"><a href="https://www.credly.com/go/oSvNqG7X" target="_blank" rel="noopener">AWS Academy Graduate ↗</a></span>
+          <span class="note">AWS Academy Cloud Foundations · 20 hours · Issued 05/31/2025 · <a href="AWS-Academy-Cloud-Foundations-certificate.pdf" target="_blank" rel="noopener">View certificate (PDF)</a></span>
+        </li>
+        <li>
+          <span class="name">CIS.DF</span>
+          <span class="note">Certified Implementation Specialist — Data Foundations (CMDB and CSDM) · ServiceNow · Issued Aug 2, 2026 · <a href="CIS-DF-CMDB-CSDM-certificate.pdf" target="_blank" rel="noopener">View certificate (PDF)</a></span>
+        </li>
+        <li>
+          <span class="name">Microsoft Certified</span>
+          <span class="note">Azure Fundamentals (AZ-900) · Credential ID: 65B0AD9DC9D9E63C · Earned Jul 26, 2026 · <a href="Microsoft-Azure-Fundamentals-AZ900-certificate.pdf" target="_blank" rel="noopener">View certificate (PDF)</a></span>
+        </li>
+      </ul>
+    </section>
 
+    <section class="section" id="contact">
+      <p class="eyebrow">Contact</p>
+      <h2 style="font-size:26px; margin-bottom:8px;">Get in touch</h2>
+      <p style="color:var(--text-soft); max-width:56ch; margin-top:14px;">Seeking opportunities where I can contribute technical expertise, problem-solving skills, and continuous learning. Reach out through any of the channels below.</p>
+      <div class="contact-grid">
+        <div class="item">
+          <div class="label">Phone</div>
+          <div class="val"><a href="tel:+919347802454">+91 93478 02454</a></div>
+        </div>
+        <div class="item">
+          <div class="label">Email</div>
+          <div class="val"><a href="mailto:2300033804cseh2@gmail.com">2300033804cseh2@gmail.com</a></div>
+        </div>
+        <div class="item">
+          <div class="label">GitHub</div>
+          <div class="val"><a href="https://github.com/mohanapriyapotti1105-beep" target="_blank" rel="noopener">mohanapriyapotti1105-beep</a></div>
+        </div>
+        <div class="item">
+          <div class="label">LinkedIn</div>
+          <div class="val"><a href="https://www.linkedin.com/in/mohana-priya-potti-5b6770289/" target="_blank" rel="noopener">mohana-priya-potti</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Potti Mohana Priya. Built with care.</footer>
+
+  </main>
+</div>
 </body>
 </html>
